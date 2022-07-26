@@ -1,3 +1,7 @@
+<?php
+include __DIR__ . '/util.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +13,21 @@
 </head>
 <body>
 <div class="container">
-    <form class="row row-cols-1 justify-content-center" action="#" method="post">
+    <form class="row row-cols-1 justify-content-center" action="login-controller.php" method="post">
         <h2 class="col-3 mb-3">Authorization</h2>
+        <div class="w-100"></div>
+        <?php showMessage(); ?>
         <div class="w-100"></div>
         <div class="col-3 mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   required>
             <div id="emailHelp" class="form-text">example@example.com</div>
         </div>
         <div class="w-100"></div>
         <div class="col-3 mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
         </div>
         <div class="w-100"></div>
         <div class="col-3 mb-3">

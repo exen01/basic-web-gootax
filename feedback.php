@@ -1,3 +1,9 @@
+<?php
+include __DIR__ . '/util.php';
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,16 +67,15 @@
         </div>
         <div class="w-100"></div>
         <div class="col-3 mb-3">
-            <div class="input-group">
-                <label for="recommendSelect" class="form-label">Would you recommend this service to a friend?</label>
-                <select name="recommendation" class="form-select" id="recommendSelect">
-                    <option selected>Choose...</option>
-                    <option value="1">Yes, definitely</option>
-                    <option value="2">Maybe, if the content was changed</option>
-                    <option value="3">Maybe, if it was cheaper</option>
-                    <option value="4">No, never</option>
-                </select>
-            </div>
+            <label for="ratingSelect" class="form-label">How would you rate our service?</label>
+            <select name="rating" class="form-select" id="ratingSelect">
+                <option selected>Choose...</option>
+                <option value="1">Terrible</option>
+                <option value="2">Not bad</option>
+                <option value="3">Neutral</option>
+                <option value="4">Good</option>
+                <option value="5">Great</option>
+            </select>
         </div>
         <div class="w-100"></div>
         <div class="col-3 mb-3">
