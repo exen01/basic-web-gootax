@@ -6,7 +6,7 @@ $query = pdo()->prepare("SELECT * FROM `user` WHERE `email` = :email");
 $query->execute(['email' => trim($_POST['email'])]);
 
 if (!$query->rowCount()){
-    addMessage("Invalid login or password.");
+    addError("Invalid login or password.");
     header('location: login.php');
     die();
 }
@@ -20,6 +20,6 @@ if ($user['pass'] === trim($_POST['password'])){
     header('location: feedback.php');
     die();
 } else {
-    addMessage("Invalid login or password.");
+    addError("Invalid login or password.");
     header('location: login.php');
 }

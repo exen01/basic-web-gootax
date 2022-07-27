@@ -35,11 +35,30 @@ function addMessage(string $message): void
     }
 }
 
+// save error in session
+function addError(string $error): void
+{
+    if ($error) {
+        $_SESSION['error'] = $error;
+    }
+}
+
+// show and delete error in session
+function showError(): void
+{
+    if (isset($_SESSION['error'])) { ?>
+        <div class="alert alert-danger mb-3 col-3">
+            <?= $_SESSION['error']; ?>
+        </div>
+    <?php }
+    unset($_SESSION['error']);
+}
+
 // show and delete message in session
-function showMessage($message = null): void
+function showMessage(): void
 {
     if (isset($_SESSION['message'])) { ?>
-        <div class="alert alert-danger mb-3 col-3">
+        <div class="alert alert-success mb-3 col-3">
             <?= $_SESSION['message']; ?>
         </div>
     <?php }

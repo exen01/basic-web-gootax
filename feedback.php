@@ -1,7 +1,10 @@
 <?php
 include __DIR__ . '/util.php';
 
-
+if (!check_auth()) {
+    header('location: login.php');
+    die;
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,12 +18,17 @@ include __DIR__ . '/util.php';
 </head>
 <body>
 <div class="container">
-    <form class="row justify-content-center" action="#" method="post">
+    <form class="row justify-content-center" action="feedback-controller.php" method="post">
         <h2 class="col-3 mb-3">Feedback</h2>
+        <div class="w-100"></div>
+        <?php
+        showError();
+        showMessage();
+        ?>
         <div class="w-100"></div>
         <div class="col-3 mb-3">
             <label for="inputText1" class="form-label">Subject</label>
-            <input name="subject" type="text" class="form-control" id="inputText1">
+            <input name="subject" type="text" class="form-control" id="inputText1" required>
         </div>
         <div class="w-100"></div>
         <div class="col-3 mb-3">
@@ -29,15 +37,15 @@ include __DIR__ . '/util.php';
         </div>
         <div class="w-100"></div>
         <div class="col-3 mb-3">
-            <p>Were you able to find what you needed?</p>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="findYes" id="flexRadioDefault1" checked>
+            <span>Were you able to find what you needed?</span>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="find" value="1" id="flexRadioDefault1" checked>
                 <label class="form-check-label" for="flexRadioDefault1">
                     Yes
                 </label>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="findNo" id="flexRadioDefault2">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="find" value="0" id="flexRadioDefault2">
                 <label class="form-check-label" for="flexRadioDefault2">
                     No
                 </label>
@@ -45,21 +53,21 @@ include __DIR__ . '/util.php';
         </div>
         <div class="w-100"></div>
         <div class="col-3 mb-3">
-            <p>Where did you hear about us?</p>
+            <span>Where did you hear about us?</span>
             <div class="form-check">
-                <input name="search" class="form-check-input" type="checkbox" value="1" id="checkBox1">
+                <input name="hearFrom[]" class="form-check-input" type="checkbox" value="search" id="checkBox1">
                 <label class="form-check-label" for="checkBox1">
                     Search Engine
                 </label>
             </div>
             <div class="form-check">
-                <input name="referral" class="form-check-input" type="checkbox" value="1" id="checkBox2">
+                <input name="hearFrom[]" class="form-check-input" type="checkbox" value="referral" id="checkBox2">
                 <label class="form-check-label" for="checkBox2">
                     Referral
                 </label>
             </div>
             <div class="form-check">
-                <input name="ads" class="form-check-input" type="checkbox" value="1" id="checkBox3">
+                <input name="hearFrom[]" class="form-check-input" type="checkbox" value="ads" id="checkBox3">
                 <label class="form-check-label" for="checkBox3">
                     Online Ads
                 </label>

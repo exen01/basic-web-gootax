@@ -16,7 +16,7 @@ include __DIR__ . '/util.php'
     <form class="row row-cols-1 justify-content-center" action="login-controller.php" method="post">
         <h2 class="col-3 mb-3">Authorization</h2>
         <div class="w-100"></div>
-        <?php showMessage(); ?>
+        <?php showError(); ?>
         <div class="w-100"></div>
         <div class="col-3 mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
